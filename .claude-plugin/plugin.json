@@ -1,0 +1,24 @@
+{
+  "name": "agentopt",
+  "description": "IronLabs AgentOpt — iterative Python agent optimizer. Benchmarks agents in E2B sandboxes, analyzes failures, and synthesizes targeted patches to improve system prompts and agent code.",
+  "version": "2.0.0",
+  "author": {
+    "name": "IronLabs AI",
+    "email": "team@ironlabs.ai"
+  },
+  "homepage": "https://ironlabs.ai",
+  "repository": "https://github.com/Irona-ai/Agent-Finetuning",
+  "keywords": [
+    "agentopt",
+    "llm",
+    "optimization",
+    "agent",
+    "ironlabs",
+    "e2b",
+    "benchmark",
+    "skillopt"
+  ],
+  "commands": [
+    "./commands/setup.md"
+  ]
+}

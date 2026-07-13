@@ -1,0 +1,30 @@
+{
+  "name": "@ironlabs/agentopt-plugin",
+  "version": "2.0.0",
+  "type": "module",
+  "openclaw": {
+    "extensions": ["./index.mjs"]
+  },
+  "files": [
+    ".claude-plugin/",
+    "openclaw.plugin.json",
+    "index.mjs",
+    "hooks/",
+    "skills/",
+    "commands/",
+    "examples/",
+    "README.md"
+  ],
+  "keywords": [
+    "claude-code",
+    "claude-plugin",
+    "agentopt",
+    "ironlabs",
+    "llm-optimization"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Irona-ai/Agent-Finetuning"
+  }
+}
