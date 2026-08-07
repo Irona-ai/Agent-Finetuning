@@ -1,0 +1,16 @@
+{
+  "name": "agentopt-plugin",
+  "owner": {
+    "name": "IronLabs AI",
+    "url": "https://ironlabs.ai"
+  },
+  "description": "Official Claude Code plugin for IronLabs AgentOpt — autonomous agent optimization",
+  "plugins": [
+    {
+      "name": "agentopt",
+      "version": "2.0.0",
+      "source": "./",
+      "description": "Iterative Python agent optimizer: benchmarks agents in E2B sandboxes, analyzes failures with SkillOpt mini-batch patch synthesis, and improves system prompts and agent code across multiple target models."
+    }
+  ]
+}

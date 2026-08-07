@@ -1,0 +1,24 @@
+{
+  "id": "agentopt",
+  "name": "AgentOpt",
+  "description": "IronLabs AgentOpt — iterative Python agent optimization via E2B sandboxes and Claude proposer. Includes smoke-testing, job creation, monitoring, and result retrieval.",
+  "version": "2.0.0",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "studioUrl": {
+        "type": "string",
+        "description": "IronLabs Studio base URL (default: http://localhost:3000)"
+      }
+    }
+  },
+  "skills": [
+    "skills/agentopt",
+    "skills/smoke-test",
+    "skills/create-agent-opt",
+    "skills/monitor",
+    "skills/agentopt-results",
+    "skills/agentopt-list"
+  ]
+}
