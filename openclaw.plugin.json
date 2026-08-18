@@ -1,7 +1,7 @@
 {
-  "id": "agentopt",
-  "name": "AgentOpt",
-  "description": "IronLabs AgentOpt — iterative Python agent optimization via E2B sandboxes and Claude proposer. Includes smoke-testing, job creation, monitoring, and result retrieval.",
+  "id": "agent-finetuning",
+  "name": "Agent-Finetuning",
+  "description": "IronLabs Agent-Finetuning — iterative Python agent optimization via E2B sandboxes and Claude proposer. Includes smoke-testing, job creation, monitoring, and result retrieval.",
   "version": "2.0.0",
   "configSchema": {
     "type": "object",
@@ -9,16 +9,16 @@
     "properties": {
       "studioUrl": {
         "type": "string",
-        "description": "IronLabs Studio base URL (default: http://localhost:3000)"
+        "description": "IronLabs Studio base URL — configured via `protege login --base-url`, not this plugin setting"
       }
     }
   },
   "skills": [
-    "skills/agentopt",
+    "skills/agent-finetuning",
     "skills/smoke-test",
-    "skills/create-agent-opt",
+    "skills/create-agent-finetuning",
     "skills/monitor",
-    "skills/agentopt-results",
-    "skills/agentopt-list"
+    "skills/agent-finetuning-results",
+    "skills/agent-finetuning-list"
   ]
 }
