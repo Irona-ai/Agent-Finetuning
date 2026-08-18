@@ -1,12 +1,12 @@
 ---
 name: smoke-test
-description: "Validate agent.py, eval.py, and dataset.json locally with a live dry-run before any Studio endpoint is called. Gates /create-agent-opt. Run standalone to debug file issues."
+description: "Validate agent.py, eval.py, and dataset.json locally with a live dry-run before any Studio endpoint is called. Gates /create-agent-finetuning. Run standalone to debug file issues."
 allowed-tools: Bash, Read
 metadata:
-  author: ironlabs
+  author: protege
   version: 2.0.0
   category: agent-optimization
-  tags: [smoke-test, validation, dry-run, agentopt, ironlabs]
+  tags: [smoke-test, validation, dry-run, agent-finetuning, protege]
 ---
 
 # Smoke Test
@@ -16,7 +16,7 @@ metadata:
 ## When Invoked
 
 - Explicitly: user types `/smoke-test` or asks to validate their files
-- Automatically: as the first step inside `/create-agent-opt` — if smoke-test fails, the job is NOT submitted
+- Automatically: as the first step inside `/create-agent-finetuning` — if smoke-test fails, the job is NOT submitted
 
 ## Steps
 
@@ -148,27 +148,6 @@ print(f'  OK  spot-run complete')
 "
 ```
 
-### Step 7 — URL reachability (only if `input_url` is known)
-
-Skip this step if no `input_url` has been provided yet.
-
-```bash
-# Only run if INPUT_URL is set
-if [ -n "${INPUT_URL:-}" ]; then
-  curl -s -X POST "${IRONLABS_STUDIO_URL:-http://localhost:3000}/api/agentopt/verify-input-url" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer ${IRONLABS_API_KEY:?Set IRONLABS_API_KEY}" \
-    -d "{\"url\": \"$INPUT_URL\"}" | python3 -c "
-import json, sys
-d = json.load(sys.stdin)
-if not d.get('reachable'):
-    print(f'FAIL [url] Studio cannot reach input_url: {d.get(\"error\",\"unknown\")}')
-    sys.exit(1)
-print(f'  OK  input_url reachable ({d.get(\"content_type\",\"\")}, {d.get(\"content_length\",\"?\")} bytes)')
-"
-fi
-```
-
 ## Success Output
 
 ```
@@ -182,7 +161,6 @@ fi
   predicted: unknown
   score:     0.000
   OK  spot-run complete
-  OK  input_url reachable (application/zip, 8192 bytes)
 
 Smoke test passed. Safe to submit job.
 ```
@@ -196,4 +174,3 @@ Smoke test passed. Safe to submit job.
 | `FAIL [dataset] 7 items — minimum 10 required` | Too few samples | Add more rows to dataset.json |
 | `FAIL [agent-import] ModuleNotFoundError: openai` | Missing dependency | Add to `DEPENDENCIES` list or install locally |
 | `FAIL [agent-run] run_batch must return list[str]` | Wrong return type | Return `list(await asyncio.gather(...))` |
-| `FAIL [url] Studio cannot reach input_url` | ZIP not publicly accessible | Host on public URL or run local HTTP server |

@@ -1,5 +1,5 @@
 {
-  "name": "@ironlabs/agentopt-plugin",
+  "name": "@ironlabs/agent-finetuning-plugin",
   "version": "2.0.0",
   "type": "module",
   "openclaw": {
@@ -18,8 +18,8 @@
   "keywords": [
     "claude-code",
     "claude-plugin",
-    "agentopt",
-    "ironlabs",
+    "agent-finetuning",
+    "protege",
     "llm-optimization"
   ],
   "license": "MIT",

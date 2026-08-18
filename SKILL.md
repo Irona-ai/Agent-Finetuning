@@ -1,18 +1,18 @@
 ---
-name: AgentOpt
+name: Agent-Finetuning
 description: >
   Iterative Python agent optimizer running on IronLabs Studio.
   Takes agent.py, eval.py, and dataset.json, benchmarks the agent in E2B sandboxes,
   analyzes failures, and synthesizes targeted patches to improve system prompts and code.
 allowed-tools: Read
 metadata:
-  author: ironlabs
+  author: protege
   version: 1.0.0
   category: agent-optimization
-  tags: [agentopt, optimization, ironlabs]
+  tags: [agent-finetuning, optimization, protege]
 ---
 
-# AgentOpt
+# Agent-Finetuning
 
 Iteratively improve a Python agent's system prompt and code by benchmarking it against a dataset, analyzing failures, and synthesizing targeted patches — running fully automated inside E2B sandboxes.
 
@@ -20,16 +20,16 @@ Iteratively improve a Python agent's system prompt and code by benchmarking it a
 
 | Slash | Skill | Purpose |
 |-------|-------|---------|
-| `/agentopt` | `agentopt:agentopt` | Overview + file format reference |
-| `/smoke-test` | `agentopt:smoke-test` | Validate files + dry-run agent locally before any Studio call |
-| `/create-agent-opt` | `agentopt:create-agent-opt` | Submit a new optimization job |
-| `/monitor` | `agentopt:monitor` | Poll live iteration progress of a running job |
-| `/agentopt-results` | `agentopt:agentopt-results` | Fetch final results for a completed job |
-| `/agentopt-list` | `agentopt:agentopt-list` | List all optimization jobs |
+| `/agent-finetuning` | `agent-finetuning:agent-finetuning` | Overview + file format reference |
+| `/smoke-test` | `agent-finetuning:smoke-test` | Validate files + dry-run agent locally before any Studio call |
+| `/create-agent-finetuning` | `agent-finetuning:create-agent-finetuning` | Submit a new optimization job |
+| `/monitor` | `agent-finetuning:monitor` | Poll live iteration progress of a running job |
+| `/agent-finetuning-results` | `agent-finetuning:agent-finetuning-results` | Fetch final results for a completed job |
+| `/agent-finetuning-list` | `agent-finetuning:agent-finetuning-list` | List all optimization jobs |
 
 ## Setup
 
-Run `/agentopt:setup` to configure `IRONLABS_API_KEY` and `IRONLABS_STUDIO_URL`.
+Run `/agent-finetuning:setup` to install the `protege` CLI and log in.
 
 ## Required Files
 
